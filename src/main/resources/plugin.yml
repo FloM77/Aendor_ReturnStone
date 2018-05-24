@@ -1,0 +1,17 @@
+name: ReturnStone
+version: 1.0
+main: AT.MSev.ReturnStone.Main
+author: Mango Msev
+commands:
+   setZS:
+      description: Set the location of the return stone spawn.
+      usage: /setZS
+      permission: ReturnStone.setZS
+      permission-message: You don't have <permission>
+   Zs:
+      description: Summon a return stone.
+      usage: /Zs
+permissions:
+    ReturnStone.setZS:
+        description: Allows you to set the return stone spawn location
+        default: op
