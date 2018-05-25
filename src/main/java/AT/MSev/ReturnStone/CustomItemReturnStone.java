@@ -2,6 +2,7 @@ package AT.MSev.ReturnStone;
 
 import AT.MSev.Mango.CustomItemInteractable;
 import org.bukkit.*;
+import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
@@ -21,14 +22,17 @@ public class CustomItemReturnStone extends CustomItemInteractable {
         super.RightClickEvent(e);
         if(RightClickCanceled) return;
 
-        e.getPlayer().getWorld().playEffect(e.getPlayer().getLocation(), Effect.ENDER_SIGNAL, 0);
+        World world = e.getPlayer().getWorld();
+        Player player = e.getPlayer();
 
-        Location toTeleport = e.getPlayer().getWorld().getSpawnLocation();
+        world.playEffect(player.getLocation(), Effect.ENDER_SIGNAL, 0);
+
+        Location toTeleport = world.getSpawnLocation();
         if(Main.config.getConfig().contains("ReturnStone.Location")) toTeleport = (Location) Main.config.getConfig().get("ReturnStone.Location");
-        e.getPlayer().teleport(toTeleport);
+        player.teleport(toTeleport);
 
-        e.getPlayer().getWorld().playEffect(e.getPlayer().getLocation(), Effect.ENDER_SIGNAL, 0);
-        e.getPlayer().sendMessage(ChatColor.DARK_GREEN + "Zenimays stone teleported you!");
+        world.playEffect(e.getPlayer().getLocation(), Effect.ENDER_SIGNAL, 0);
+        player.sendMessage(ChatColor.DARK_GREEN + "Zenimays stone teleported you!");
     }
 
 
