@@ -16,7 +16,7 @@ public class CommandSetReturnStoneLocation implements CommandExecutor {
             return true;
         }
         if(command.getName().equals("Zs")) {
-            CustomItemBase.Get("ReturnStone").Give(((Player)commandSender));
+            CustomItemBase.Get("ReturnStone").Give(((Player)commandSender), true);
             ((Player)commandSender).sendMessage(ChatColor.DARK_GREEN + "Summoned a Zenimays stone.");
         }
         return false;
