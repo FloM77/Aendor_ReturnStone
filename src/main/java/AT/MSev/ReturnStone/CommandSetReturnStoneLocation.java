@@ -1,6 +1,6 @@
 package AT.MSev.ReturnStone;
 
-import AT.MSev.Mango.CustomItemBase;
+import AT.MSev.Mango_Core.Items.ItemBase;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -16,7 +16,7 @@ public class CommandSetReturnStoneLocation implements CommandExecutor {
             return true;
         }
         if(command.getName().equals("Zs")) {
-            CustomItemBase.Get("ReturnStone").Give(((Player)commandSender), true);
+            ItemBase.Get("ReturnStone").Give(((Player)commandSender), true);
             ((Player)commandSender).sendMessage(ChatColor.DARK_GREEN + "Summoned a Zenimays stone.");
         }
         return false;

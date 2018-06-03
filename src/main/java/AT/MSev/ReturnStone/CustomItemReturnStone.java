@@ -1,6 +1,6 @@
 package AT.MSev.ReturnStone;
 
-import AT.MSev.Mango.CustomItemInteractable;
+import AT.MSev.Mango_Core.Items.ItemInteractable;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerDropItemEvent;
@@ -8,7 +8,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 
 import java.util.ArrayList;
 
-public class CustomItemReturnStone extends CustomItemInteractable {
+public class CustomItemReturnStone extends ItemInteractable {
     public CustomItemReturnStone()
     {
         super("ReturnStone", Material.EMERALD);
@@ -18,9 +18,9 @@ public class CustomItemReturnStone extends CustomItemInteractable {
     }
 
     @Override
-    public void RightClickEvent(PlayerInteractEvent e) {
-        super.RightClickEvent(e);
-        if(RightClickCanceled) return;
+    public void OnRightClick(PlayerInteractEvent e) {
+        super.OnRightClick(e);
+        if(Cancel) return;
 
         World world = e.getPlayer().getWorld();
         Player player = e.getPlayer();
@@ -37,7 +37,7 @@ public class CustomItemReturnStone extends CustomItemInteractable {
 
 
     @Override
-    public void DropEvent(PlayerDropItemEvent e) {
+    public void OnDrop(PlayerDropItemEvent e) {
         e.getItemDrop().remove();
         e.getPlayer().sendMessage(ChatColor.DARK_GREEN + "Zenimays stone dissapeared.");
     }
